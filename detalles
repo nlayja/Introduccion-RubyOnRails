@@ -1,0 +1,46 @@
+Ingresa ATOM
+Dar clic en "New Terminal"     // abrira la consola 
+
+Apartir de ahora, teclea en consola de ATOM
+rails -v                       // ver la version instalada de Rails
+rails new heroes_inbox         // crear un proyecto, inicia con una carpeta 
+cd heroes_inbox                // ingresar a carpeta heroes_inbox
+
+GENERANDO MODELOS
+tabla HEROES                   tabla MESSAGES
+id         integer               id         integer
+nickname   string                content    string
+name       string                heroe_id    integer
+class      string                
+email      string
+
+Apartir de ahora, teclea en consola de ATOM
+rails generate scaffold Heroe nickname:string class:string email:string     // Definir la tabla HEROE, importante en singular
+rails generate scaffold Message content:text heroe_id:integer               // Definir la tabla MESSAGE, importante en singular
+
+
+CREAR RELACIONES ENTRE OBJETOS
+              *Un HEROE tiene muchos mensajes, pero un mensaje solo tiene un HEROE
+               Dentro de Atom            // Definir la relacion entre heroe.erb y message.erb //      Estan dentro de models
+
+class Heroe < ApplicationRecord
+  has_many :messages                     //significa heroe tiene muchos mensajes
+end
+
+class Message < ApplicationRecord
+  validates :content, length:{maximum: 140}, presence: true     // agrega validacion 
+  belongs_to :heroe                                             // significa un mensaje solo tiene un heroe
+end
+
+Hasta el momento solo defini, falta crear las tablas. 
+Apartir de ahora, teclea en consola de ATOM
+rake db:migrate                          //listo se crearon tablas
+rails s                                  // correr servidor rails
+
+ahora ingresa en navegador de internet a:
+localhost: 3000/heroes
+localhost: 3000/messages
+
+                                        
+
+
