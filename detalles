@@ -41,6 +41,26 @@ ahora ingresa en navegador de internet a:
 localhost: 3000/heroes
 localhost: 3000/messages
 
-                                        
+AGREGAR UNA VISTA DESDE CONSOLA
+Apartir de ahora, teclea en consola de ATOM
+rails g controller welcome index profile  // ATOM/HEROES_INBOX/APP/VIEW, se crea carpeta Welcome y archivos HTML (Index y Profile)
+
+
+
+ahora ingresa en navegador de internet a:
+http://localhost:3000/welcome/profile?hero_id=2
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
